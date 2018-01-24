@@ -1,0 +1,49 @@
+#include <iostream>
+#include <cstdio>
+#include <cmath>
+#include <string>
+#include <cstring>
+#include <cctype>
+#include <algorithm>
+using namespace std;
+char a[5000][500]={' '};
+int b[26];
+int main(){
+	string ch[4];
+	int k=0,maxn=-1;
+	for(int i=0;i<4;i++)
+	{
+		getline(cin,ch[i]);
+	}
+	for(int i=0;i<4;i++)
+	{
+	
+	for(int j=0;j<ch[i].size();j++)
+	{
+		if(ch[i][j]>='A'&&ch[i][j]<='Z')
+		{
+			b[ch[i][j]-'A']++;
+		}	
+	}
+    }
+    for(int i=0;i<26;i++) 
+	    if(b[i]>maxn) maxn=b[i];
+	    
+	for(int i=0;i<26;i++)
+	for(int j=0;j<=b[i]-1;j++)
+	{
+		a[i][j]='*';
+	}
+	for(int j=maxn-1;j>=0;j--)
+	{
+	    for(int i=0;i<26;i++)
+	    {
+	        cout<<a[i][j]<<' ';
+		}
+		cout<<endl;
+	}
+	for(int i=0;i<26;i++)
+	{
+		cout<<(char)(i+'A')<<' ';
+	}
+}
