@@ -22,18 +22,28 @@ string a="123456789ABCDEF";
 }*/
 int FFF(string p,int n)
 {
-	int i,bj,k=0;
-	for(i=0;i<p.size();i++)
+	int i,bj,k=0,o=p.size()-1;
+	for(i=o;i>=0;i--)
 	{
-		for(int j=0;j<16;j++)
+		switch(p[i])
 		{
-			if(p[i]==a[j])
-			{
-				bj=j+1;
-				break;
-			}
+			case '1':bj=1;break;
+			case '2':bj=2;break;
+			case '3':bj=3;break;
+			case '4':bj=4;break;
+			case '5':bj=5;break;
+			case '6':bj=6;break;
+			case '7':bj=7;break;
+			case '8':bj=8;break;
+			case '9':bj=9;break;
+			case 'A':bj=10;break;
+			case 'B':bj=11;break;
+			case 'C':bj=12;break;
+			case 'D':bj=13;break;
+			case 'E':bj=14;break;
+			case 'F':bj=15;break;
 		}
-		k+=(int)pow((float)n,i)*bj;
+		k+=(int)pow((float)n,o-i)*bj;
 	}
 	return k;
 }
@@ -47,6 +57,5 @@ int main(){
 	x=FFF(p,n);
 	itoa(x,l,m);
 	p=l;
-	for(int i=0;i<p.size();i++) if(p[i]>='a'&&p[i]<='z') p[i]-=32;
 	cout<<p;
 }
