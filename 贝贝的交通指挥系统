@@ -1,0 +1,37 @@
+#include <iostream>
+#include <cstdio>
+#include <cmath>
+#include <string>
+#include <cstring>
+#include <cctype>
+#include <algorithm>
+using namespace std;
+bool bj1[26]={0},bj2[26]={0};
+char zh[26];
+int s=0,n=0;
+int main(){
+	string a,b;
+	cin>>a>>b;
+	for(int i=0;i<a.size();i++){
+		bj1[a[i]-'A']=true;
+	}
+	for(int i=0;i<b.size();i++){
+		bj2[b[i]-'A']=true;
+	}
+	for(int i=0;i<=25;i++){
+		if(bj1[i]==true&&bj2[i]==true){
+			s++;
+			zh[n]=i+'A';
+			n++;
+		}
+	}
+	if(n==0) cout<<"WuXiao";
+	  else if(n==1) cout<<"ZhiHui"<<endl<<zh[n-1];
+	  else {
+	  	cout<<"XLuo"<<endl<<n<<endl<<zh[0];
+	  	for(int i=1;i<n;i++){
+	  		cout<<"-"<<zh[i];
+	  	}
+	  }
+	  return 0;
+}
