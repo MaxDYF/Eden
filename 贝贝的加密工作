@@ -1,0 +1,37 @@
+#include <iostream>
+#include <cstdio>
+#include <cmath>
+#include <string>
+#include <cstring>
+#include <cctype>
+#include <algorithm>
+using namespace std;
+struct xt{
+	int i,j;
+}bj[150];
+int main(){
+	int s=1,t=0,o=0;
+	string a,b,num;
+	char ch[1024];
+	cin>>a;
+	for(;;)
+	{
+	    for(int i=1;i<a.size();i++){
+		    if(a[i]==a[i-1]) s++;
+		    else {
+			    if(s>1)
+			    {
+			        sprintf(ch,"%d",s);
+			        num=ch;
+			        b=a.substr(i,a.size()-1)+(char)(a[i-1]-('a'-'A'))+num+a.substr(0,i-s);
+			        a=b;
+			        o++;
+			    }
+			    s=1;
+		    }
+	    }
+	    if(o==0) break;
+	    else o=0;
+	}
+	for(int j=0;j<a.size();j++) cout<<a[j];
+}
