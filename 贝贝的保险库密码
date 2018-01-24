@@ -1,0 +1,25 @@
+#include <iostream>
+#include <cstdio>
+#include <cmath>
+#include <string>
+#include <cstring>
+#include <cctype>
+#include <algorithm>
+using namespace std;
+int Turn(int a,int b){
+	int s=0;
+	while(a!=0){
+		int e=a%b;
+		a/=b;
+		s+=e;
+	}
+	return s;
+}
+int main(){
+	int a;
+	cin>>a;
+	cout<<Turn(a,16);
+	if(Turn(a,10)==Turn(a,16)&&Turn(a,10)==Turn(a,12)) cout<<"Right"<<endl;
+	  else cout<<"Wrong"<<endl;
+	
+}
