@@ -14,10 +14,11 @@ int main(){
 	string a,b,num;
 	char ch[1024];
 	cin>>a;
+	a[a.size()]=' ';
 	for(;;)
 	{
-	    for(int i=1;i<a.size();i++){
-		    if(a[i]==a[i-1]) s++;
+	    for(int i=1;i<=a.size();i++){
+		    if(a[i]==a[i-1]&&a[i]>='a'&&a[i]<='z') s++;
 		    else {
 			    if(s>1)
 			    {
@@ -26,8 +27,9 @@ int main(){
 			        b=a.substr(i,a.size()-1)+(char)(a[i-1]-('a'-'A'))+num+a.substr(0,i-s);
 			        a=b;
 			        o++;
+			        s=1;
+			        i=a.size()-i+1+num.size();
 			    }
-			    s=1;
 		    }
 	    }
 	    if(o==0) break;
