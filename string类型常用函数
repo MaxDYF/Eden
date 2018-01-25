@@ -1,0 +1,5 @@
+s.size() 求字符串s长度
+s.substr(w,k) 从字符串s中第w位取长度为k的子串
+s.erase(w,k) 从字符串s中第w位删除长度为k的子串
+s.insert(w,str) 将str插入到s中的第w位
+连接号'+',将两个字符串连接
